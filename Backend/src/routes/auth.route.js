@@ -24,5 +24,5 @@ router.post("/forgot-password", forgotPassword);
 
 router.post("/reset-password/:token", resetPassword);
 
-router.patch("/selection-role", verifyToken, SelectionRole);
+router.post("/submit-role", verifyToken, SelectionRole);
 export default router;

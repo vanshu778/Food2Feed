@@ -199,28 +199,73 @@ export const checkAuth = async (req, res) => {
 };
 
 //Selection role
+// export const SelectionRole = async (req, res) => {
+// 	const { role } = req.body;
+
+// 	try {
+// 		// Validate the new role
+// 		const allowedRoles = ["donor", "receiver", "volunteer"];
+// 		if (!allowedRoles.includes(role)) {
+// 			return res.status(400).json({ success: false, message: "Invalid role. Choose 'donor', 'receiver', or 'volunteer'." });
+// 		}
+
+// 		// Find and update the user's role
+// 		const user = await User.findById(req.userId);
+// 		if (!user) {
+// 			return res.status(404).json({ success: false, message: "User not found" });
+// 		}
+
+// 		user.role = role;
+// 		await user.save();
+
+// 		res.status(200).json({ success: true, message: "User role updated successfully", user: { ...user._doc, password: undefined } });
+// 	} catch (error) {
+// 		console.log("Error in updateUserRole ", error);
+// 		res.status(500).json({ success: false, message: "Server error" });
+// 	}
+// };
+
 export const SelectionRole = async (req, res) => {
-	const { role } = req.body;
+    const { role } = req.body;
+    console.log("Role received:", role); // Log role input
 
-	try {
-		// Validate the new role
-		const allowedRoles = ["donor", "receiver", "volunteer"];
-		if (!allowedRoles.includes(role)) {
-			return res.status(400).json({ success: false, message: "Invalid role. Choose 'donor', 'receiver', or 'volunteer'." });
-		}
+    try {
+        const allowedRoles = ["donor", "receiver", "volunteer"];
+        if (!allowedRoles.includes(role)) {
+            console.log("Invalid role:", role);
+            return res.status(400).json({
+                success: false,
+                message: "Invalid role. Choose 'donor', 'receiver', or 'volunteer'."
+            });
+        }
 
-		// Find and update the user's role
-		const user = await User.findById(req.userId);
-		if (!user) {
-			return res.status(404).json({ success: false, message: "User not found" });
-		}
+        if (!req.userId) {
+            console.log("User ID not found in req object.");
+            return res.status(401).json({
+                success: false,
+                message: "Unauthorized request. Please log in."
+            });
+        }
 
-		user.role = role;
-		await user.save();
+        const user = await User.findById(req.userId);
+        if (!user) {
+            console.log("User not found with ID:", req.userId);
+            return res.status(404).json({ success: false, message: "User not found." });
+        }
 
-		res.status(200).json({ success: true, message: "User role updated successfully", user: { ...user._doc, password: undefined } });
-	} catch (error) {
-		console.log("Error in updateUserRole ", error);
-		res.status(500).json({ success: false, message: "Server error" });
-	}
+        user.role = role;
+        await user.save();
+
+        console.log("Role updated successfully:", user.role);
+        return res.status(200).json({
+            success: true,
+            message: "Role updated successfully",
+            user: { ...user._doc, password: undefined }
+        });
+    } catch (error) {
+        console.error("Error in SelectionRole controller:", error);
+        return res.status(500).json({ success: false, message: "Server error" });
+    }
 };
+
+
