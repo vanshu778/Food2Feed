@@ -7,7 +7,7 @@ import EmailVerificationPage from "./pages/EmailVerificationPage";
 import DashboardPage from "./pages/DashboardPage";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
 import ResetPasswordPage from "./pages/ResetPasswordPage";
-
+import SelectProfile from "./pages/SelectProfile";
 import LoadingSpinner from "./components/LoadingSpinner";
 
 import { Toaster } from "react-hot-toast";
@@ -59,14 +59,23 @@ function App() {
 			<FloatingShape color='bg-lime-500' size='w-32 h-32' top='40%' left='-10%' delay={2} />
 
 			<Routes>
-				<Route
+			<Route
+					path='/'
+					// path='/selection-role'
+					element={
+						<ProtectedRoute>
+							<SelectProfile/>
+						</ProtectedRoute>
+					}
+				/>
+				{/* <Route
 					path='/'
 					element={
 						<ProtectedRoute>
 							<DashboardPage />
 						</ProtectedRoute>
 					}
-				/>
+				/> */}
 				<Route
 					path='/signup'
 					element={
@@ -101,6 +110,7 @@ function App() {
 						</RedirectAuthenticatedUser>
 					}
 				/>
+
 				{/* catch all routes */}
 				<Route path='*' element={<Navigate to='/' replace />} />
 			</Routes>

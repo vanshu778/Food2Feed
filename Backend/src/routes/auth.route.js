@@ -7,6 +7,7 @@ import {
 	forgotPassword,
 	resetPassword,
 	checkAuth,
+	SelectionRole,
 } from "../controllers/auth.controller.js";
 import { verifyToken } from "../middleware/verifyToken.js";
 
@@ -23,4 +24,5 @@ router.post("/forgot-password", forgotPassword);
 
 router.post("/reset-password/:token", resetPassword);
 
+router.patch("/selection-role", verifyToken, SelectionRole);
 export default router;

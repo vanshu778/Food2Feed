@@ -197,3 +197,30 @@ export const checkAuth = async (req, res) => {
 		res.status(400).json({ success: false, message: error.message });
 	}
 };
+
+//Selection role
+export const SelectionRole = async (req, res) => {
+	const { role } = req.body;
+
+	try {
+		// Validate the new role
+		const allowedRoles = ["donor", "receiver", "volunteer"];
+		if (!allowedRoles.includes(role)) {
+			return res.status(400).json({ success: false, message: "Invalid role. Choose 'donor', 'receiver', or 'volunteer'." });
+		}
+
+		// Find and update the user's role
+		const user = await User.findById(req.userId);
+		if (!user) {
+			return res.status(404).json({ success: false, message: "User not found" });
+		}
+
+		user.role = role;
+		await user.save();
+
+		res.status(200).json({ success: true, message: "User role updated successfully", user: { ...user._doc, password: undefined } });
+	} catch (error) {
+		console.log("Error in updateUserRole ", error);
+		res.status(500).json({ success: false, message: "Server error" });
+	}
+};
