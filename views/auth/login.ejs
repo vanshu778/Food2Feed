@@ -1,0 +1,22 @@
+<div class="m-0 pt-5 w-100" style="background:linear-gradient(rgb(255, 255, 255), rgb(0, 180, 216)); height:678px;">
+	<form action="/auth/login" method="POST" class="w-50 p-5 m-auto" style="min-width: 320px; background-color: rgba(255, 255, 255, 0.9); border: 2px solid rgb(0, 180, 216);">
+		<h3 class="text-center mb-3">User Login</h3>
+		<div class="mb-3">
+			<label for="email" class="form-label">Email address</label>
+			<input type="email" name="email" class="form-control" id="email" placeholder="Enter email.." required autofocus>
+		</div>
+
+		<div class="mb-3">
+			<label for="password" class="form-label">Password</label>
+			<input type="password" name="password" class="form-control" id="password" placeholder="Enter password.." required>
+		</div>
+		
+		<button type="submit" class="btn d-block m-auto mt-4" style="background-color:  rgb(0, 180, 216)">Submit</button>
+		
+		<div class="mt-3">
+			<span>Don't have an account?</span>
+			<a href="/auth/signup">Signup here</a>
+		</div>
+		
+	</form>
+</div>

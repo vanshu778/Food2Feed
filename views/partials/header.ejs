@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .navbar {
+      background: transparent;   
+            }
+
+    .navbar-brand {
+      font-weight: 600;
+      font-size: 1.5rem;
+    }
+
+    .navbar-nav .nav-link {
+      font-size: 1rem;
+      margin-right: 1rem;
+    }
+
+    .navbar-toggler {
+      border: none;
+    }
+    li.nav-item::before{
+      content:"";
+    }
+    .donor-navbar a[href="/about-us"],
+.donor-navbar a[href="/contact-us"] {
+    display: none;
+}
+.user-icon::before{
+  content: "";
+}
+.user-icon {
+  list-style-type: none;
+}
+
+.user-icon a {
+  text-decoration: none;
+}
+
+.user-icon-text {
+  display: inline-block;
+  width: 35px;                
+  height: 35px;
+  border-radius: 50%;        
+  background-color: lightcoral;  
+  color: white;               
+  font-size: 15px;            
+  font-weight: bold;          
+  text-align: center;         
+  line-height: 35px;         
+  margin: 4px;                
+}
+
+.user-icon-text:hover {
+  background-color:red; 
+}
+
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid pt-3">
+     <img src="/assets/images/flogo.png" alt="" height="45rem">
+		<a class="navbar-brand" href="/" style="font-family:cursive;">Food2Feed</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+			<li class="nav-item"><a class="nav-link" href="/home/about-us">About us</a></li>
+					<!-- <li class="nav-item"><a class="nav-link" href="/home/mission">Our mission</a></li> -->
+					<li class="nav-item"><a class="nav-link" href="/home/contact-us">Contact us</a></li>
+          <% if(currentUser) { %>
+            <li class="user-icon">
+              <a href="<%= currentUser.role === 'donor' ? '/donor/dashboard' : currentUser.role === 'admin' ? '/admin/dashboard' : '/agent/dashboard' %>">
+                <span class="user-icon-text"> <%= currentUser.firstName[0] %></span>
+              </a>
+            </li>
+          <% } else { %>
+            <li class="nav-item">
+              <a class="nav-link" href="/auth/login">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/auth/signup">Signup</a>
+            </li>
+          <% } %>
+          
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

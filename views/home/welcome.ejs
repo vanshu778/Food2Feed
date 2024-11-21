@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food2Feed</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- AOS CSS for animations -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <style>
+    .my-title {
+        /* background: linear-gradient(to bottom, rgba(255, 255, 255), #00b4d8);; */
+     background:linear-gradient(rgb(255, 255, 255), rgb(0, 180, 216));
+      border-bottom-left-radius: 28em;
+      border-bottom-right-radius: 28em;
+      min-height: 76vh;
+      overflow: hidden;
+    }
+
+    .container-fluid {
+       padding: 2rem; 
+    }
+
+    .grid {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      grid:2rem;
+      flex-wrap: wrap;
+    }
+
+    .text-section {
+      text-align: center;
+    }
+
+    .title {
+      font-weight: 600;
+      font-size: 67px;
+      /* margin-top: 10px; */
+    }
+
+    .subtitle {
+      font-size: 23px;
+      /* margin-top: 1rem; */
+      text-align: center;
+    }
+
+    .image-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .card {
+      text-align: center;
+    }
+
+    .image {
+      max-width: 100%;
+      height: 60vh;
+      object-fit: cover;
+      border-bottom-left-radius: 25%;
+      border-top-right-radius: 25%;
+    }
+
+    .card img {
+      width: 100%;
+    }
+
+    .section-title {
+      font-weight: bold;
+      font-size: xx-large;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .container-box {
+      background-color: #dfffff;
+      border: 2px solid white;
+      padding: 2em;
+      padding-top: 4em;
+      border-radius: 1em;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul li::before {
+      content: "• ";
+      color: #2dc7ff;
+      font-weight: bold;
+    }
+    /* Make the card and text responsive */
+    @media (max-width: 768px) {
+      .title {
+        font-size: 45px;
+      }
+
+      .subtitle {
+        font-size: 18px;
+      }
+
+      .grid {
+        flex-direction: column; /* Stack the columns on smaller screens */
+      }
+
+      .image {
+        width: 100%;
+        border-radius: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+ <!-- Hero Section -->
+  <div class="my-title">
+    <div class="container-fluid">
+      <div class="row d-flex justify-content-center align-items-center">
+        <!-- Left Column -->
+        <div class="col-12 col-md-6 text-center text-section" data-aos="fade-left">
+          <h2 class="title">Food2Feed</h2>
+          <p class="subtitle" data-aos="fade-left">
+            Share a Meal, Spread the Love
+          </p>
+        </div>
+
+        <!-- Right Column -->
+        <div class="col-12 col-md-6 image-section" data-aos="zoom-in-up">
+          <div class="card" style="background-color: transparent; border: transparent;">
+            <img src="/assets/images/img-2.jpeg" alt="profile" class="image">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <div class="container">
+    <!-- Title Section -->
+    <div class="row mt-3 mb-3">
+      <div class="col text-center section-title">
+        Our Mission
+      </div>
+    </div>
+
+    <!-- Content Sections -->
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-4 col-md-6 text-center" data-aos="fade-right">
+        <div class="card">
+          <img src="/assets/images/food_waste.webp" alt="Throwing away leftovers" height="225px">
+        </div>
+      </div>
+      <div class="col-lg-5 col-md-6">
+        <div class="container-box" data-aos="fade-left">
+          <h5 class="text-center">Food Waste</h5>
+          <ul>
+            <li>Food waste fills landfills and contributes to pollution.</li>
+             <li>It emits methane, accelerating climate change.</li>
+            <li>Wasted food strains environmental resources.</li>
+          </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Repeat similar sections for other content -->
+    <!-- Example for composting -->
+    <div class="row justify-content-center mb-5 flex-row-reverse">
+      <div class="col-lg-4 col-md-6 text-center" data-aos="fade-left">
+        <div class="card">
+          <img src="/assets/images/hunger.webp" alt="Composting">
+        </div>
+      </div>
+      <div class="col-lg-5 col-md-6">
+        <div class="container-box" data-aos="fade-left">
+          <h5 class="text-center">Ending Hunger</h5>
+          <ul>
+            <li>Hunger leads to malnutrition and weakens immune systems.</li>
+            <li>It perpetuates poverty and affects economic stability.</li>
+            <li>Chronic hunger stunts growth and development in children.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-4 col-md-6 text-center" data-aos="fade-right">
+        <div class="card">
+          <img src="/assets/images/gap.png" alt="Throwing away leftovers" height="230px">
+        </div>
+      </div>
+      <div class="col-lg-5 col-md-6">
+        <div class="container-box" data-aos="fade-left">
+          <h5 class="text-center">Coordinating Gap</h5>
+          <ul>
+            <li>Facilitates easy food donations to those in need.</li>
+            <li>Ensures timely collection and delivery through agent assignments.</li>
+            <li>Ensures excess food is repurposed instead of wasted.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      easing: "ease-in-out",
+      once: true,
+    });
+  </script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
+

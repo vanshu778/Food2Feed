@@ -1,0 +1,50 @@
+<main>
+	<%- include('../partials/donorSidebar') %>
+	
+	<div id="main-wrapper">
+		<h1 style="white-space: nowrap;overflow: hidden;text-align: center; margin-top: 2rem;">Welcome <%= currentUser.firstName %></h1>
+	  
+		<div class="bg-white shadow-sm p-3">
+			<span class="me-3" id="sidebar-toggler-btn"><i class="fas fa-bars"></i></span>
+			<h5 class="m-0 color-theme d-inline-block" style="color: #023E8A;">Dashboard(Donor)</h5>
+		</div>
+		
+		 <div class="d-flex gap-3 flex-wrap m-4 text-white">
+			
+			<div class="rounded p-3" style="width: 48%; background-color: #894749; display: flex; align-items: center; justify-content: space-between;">
+				<div>
+				<div class="fs-1"><%= numCollectedDonations %></div>
+				<div class="fs-5">donations by you</div>
+				</div>
+				<img  src="/assets/images/logo1.png" alt="Logo" style="width: 60px; height: 60px;">
+			</div>
+			<div class="rounded p-3" style="width: 48%; background-color: #4d724e; display: flex; align-items: center; justify-content: space-between;;">
+				<div>
+					<div class="fs-1"><%= numPendingDonations %></div>
+					<div class="fs-5">donation requests not processed yet</div>
+				</div>
+				<img src="/assets/images/logo2.png" alt="Logo" style="width: 70px; height: 70px;">
+			</div>
+			
+			<div class="rounded p-3" style="width: 48%; background-color: #e39e21; display: flex; align-items: center; justify-content: space-between;">
+				<div>
+					<div class="fs-1"><%= numAcceptedDonations %></div>
+				<div class="fs-5">donations accepted and to be assigned to agent</div>
+				</div>
+				<img src="/assets/images/logo3.png" style="width: 60px; height: 60px;">
+			</div>
+			
+			
+			<div class="rounded p-3" style="width: 48%; background-color: #4e353f; display: flex; align-items: center; justify-content: space-between;">
+				<div>
+					<div class="fs-1"><%= numAssignedDonations %></div>
+				<div class="fs-5">donations not collected yet</div>
+				</div>
+				<img src="/assets/images/logo4.png"style="width: 60px; height: 60px;">
+			</div>
+			
+			
+		</div>
+		
+	</div>
+</main>
